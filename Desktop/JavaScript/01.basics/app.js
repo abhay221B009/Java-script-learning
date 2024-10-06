@@ -150,32 +150,67 @@ console.log(secondName);
 // let fullaName = firstName.concat(" ", secondName); //concate method to merge two  string
 // console.log(fullaName);
 
-//2.Append
-firstName += " something else";
-console.log(firstName);
+// //2.Append
+// firstName += " something else";
+// console.log(firstName);
 
-//3.Length
+// //3.Length
 
-console.log(firstName.length);
+// console.log(firstName.length);
 
-//4.Cases
+// //4.Cases
 
-console.log(firstName.toLowerCase()); //converts the text to lower case.
-console.log(firstName.toUpperCase());
+// console.log(firstName.toLowerCase()); //converts the text to lower case.
+// console.log(firstName.toUpperCase());
 
-//5.Slice method
+// //5.Slice method
 
-console.log(firstName.slice(0, 1));
-console.log(firstName.slice(0, 2));
-console.log(firstName.slice(0, 4));
-//this slice method slices the string from the starting(0) to upto(x->number of charcter)
+// console.log(firstName.slice(0, 1));
+// console.log(firstName.slice(0, 2));
+// console.log(firstName.slice(0, 4));
+// //this slice method slices the string from the starting(0) to upto(x->number of charcter)
 
-//6.Split and Join
+// //6.Split and Join
 
-console.log(firstName.split("")); //this gives different result then the ,method given below.An extra space between  the quotes will change the final output
-console.log(firstName.split(" "));
+// console.log(firstName.split("")); //this gives different result then the ,method given below.An extra space between  the quotes will change the final output
+// console.log(firstName.split(" "));
 
-console.log(firstName.split("").join("")); //this is split and join combination
+// console.log(firstName.split("").join("")); //this is split and join combination
 
-//7. Includes
-console.log(firstName.includes("a")); //this inlcude method checks eigther the given word or string is present or not is the given string
+// //7. Includes
+// console.log(firstName.includes("b")); //this inlcude method checks eigther the given word or string is present or not is the given string0
+
+// //Trim method
+
+// let namess = "        Abhay      ";
+
+// console.log(namess);
+// //to remove spaces on both sides of abhay we will use trim method.
+
+// console.log(namess.trim()); //this will remove all the extra spaces
+
+//=================================================================================================
+//BACKTICKS  ( ` ` )
+
+// let desc = `this is some random
+// text
+// `;
+// console.log(desc);
+// //this backticks will print the text above as it is on the console.
+
+// let firstName1 = "Abhay";
+// let lastName = "Chauhan";
+
+// let fullaName1 = `${firstName1}  ${lastName}  soemthing`;
+// console.log(fullaName1);
+
+// //ASSIGNMENT---TEST-----
+
+// let favActorFirstName = "Robert";
+// let favActorLastName = "Downey Jr.";
+// let favActorFullName = `${favActorFirstName} ${favActorLastName} `;
+// console.log(favActorFullName.toLocaleUpperCase());
+// let message = `My favorite actor is ${favActorFullName} who played the role of iron man `;
+
+// message += `his best show is IRON MAN`;
+// console.log(message);

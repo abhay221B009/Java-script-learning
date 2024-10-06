@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>variables_learning javascript</title>
+</head>
+<body>
+    <script>
+        let variable1 = 3;
+        console.log(variable1);
+
+        const calculation = 2+2;//we are using const here because we dont want the variable to change any further.
+        console.log(calculation);
+        console.log(calculation + 2);
+
+
+        const result = calculation + 2;//we can use a variale wherever we use a value.
+        console.log(result);
+
+
+        let message = 'hello';
+        console.log(message);
+
+        //syntax rules for variables
+        //1. cant use special words
+        //2.cant start with a number
+        //3.cant use special character except $
+
+        console.log(';');//can be done but 
+       // console.log(message);console.log(';');  //cant be done
+       console.log(message)//can also write this code without using a semicolon , but it is a good practice if we do use this semicolon.
+
+
+
+       //--------------------------------------------------------
+
+       variable1 = 5;//updated the value of the variable1.
+       console.log(variable1);//we changed the value of variable1 from "3" to "5"
+
+
+
+
+       variable1 = variable1 + 1;
+       console.log(variable1);
+
+       //https://supersimple.dev/projects/variables/
+
+       const  variable2 = 3;
+       //this value cannot be changed
+
+       var variable3 = 5;
+       //we dont use var in new javascript code .
+
+
+       //typeof------------------------------------
+
+       console.log(typeof 3);
+       console.log(typeof variable1);
+
+
+
+    </script>
+    
+</body>
+</html>
