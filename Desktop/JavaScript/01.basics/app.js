@@ -214,3 +214,36 @@ console.log(secondName);
 
 // message += `his best show is IRON MAN`;
 // console.log(message);
+
+//==========================================================================================================
+
+//TYPE CONVERSION---------------------------------------
+
+// let money = "100";
+// console.log(typeof money);
+
+// let money1 = 50;
+// console.log(typeof money1);
+//parsing string to number
+
+// money = parseInt(money);//this string variable money is now converted to a number.
+// console.log(typeof money);
+//more shorter way to this is
+// money = +money;
+// console.log(typeof money);
+
+//third method to do this conversion is
+
+// money = Number(money); //this is the constructure method to convert the string money to integer.
+// console.log(money);
+// console.log(typeof money);
+
+//CONVERTING NUMBER TO STRING---------------------------------------
+// let money = 50;
+// money = money.toString();
+// console.log(typeof money);
+
+//CONVERT STRING TO A DECIMAL
+// let money = "50.22";
+// money = parseFloat(money);
+// console.log(typeof money);
