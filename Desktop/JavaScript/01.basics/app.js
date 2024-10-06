@@ -116,21 +116,66 @@ console.log(number + undefined); //output  will be NaN (not a number).
 //6.NaN
 //7. ' ' , " "  , (empty quotes)
 
-console.clear();
+// //console.clear();
 
-let notDefined = undefined; //when value is given to a variable then java compiler show undefined as output.
-console.log(notDefined);
+// let notDefined = undefined; //when value is given to a variable then java compiler show undefined as output.
+// console.log(notDefined);
 
-let notDefined1 = null; //this null can be set as a value for a varible where the developer does not want any kind of value to be provided.
-console.log(notDefined1);
+// let notDefined1 = null; //this null can be set as a value for a varible where the developer does not want any kind of value to be provided.
+// console.log(notDefined1);
 
-console.clear();
+// //console.clear();
 
-let isJsProgrammingLanguage = true;
-let isJsHard = false;
-let favNumb = 11;
-console.log(isJsProgrammingLanguage);
-console.log(isJsHard);
-console.log(favNumb + undefined);
+// let isJsProgrammingLanguage = true;
+// let isJsHard = false;
+// let favNumb = 11;
+// console.log(isJsProgrammingLanguage);
+// console.log(isJsHard);
+// console.log(favNumb + undefined);
 
-console.clear();
+//STRINGS=================================================================================
+
+let firstName = "Abhay";
+console.log(firstName);
+let secondName = `Webdev`;
+console.log(secondName);
+
+//CONCATANATION--------------------------------------------------
+
+// let fullName = firstName + " " + secondName;
+// console.log(fullName);
+
+//1.Concatenation
+
+// let fullaName = firstName.concat(" ", secondName); //concate method to merge two  string
+// console.log(fullaName);
+
+//2.Append
+firstName += " something else";
+console.log(firstName);
+
+//3.Length
+
+console.log(firstName.length);
+
+//4.Cases
+
+console.log(firstName.toLowerCase()); //converts the text to lower case.
+console.log(firstName.toUpperCase());
+
+//5.Slice method
+
+console.log(firstName.slice(0, 1));
+console.log(firstName.slice(0, 2));
+console.log(firstName.slice(0, 4));
+//this slice method slices the string from the starting(0) to upto(x->number of charcter)
+
+//6.Split and Join
+
+console.log(firstName.split("")); //this gives different result then the ,method given below.An extra space between  the quotes will change the final output
+console.log(firstName.split(" "));
+
+console.log(firstName.split("").join("")); //this is split and join combination
+
+//7. Includes
+console.log(firstName.includes("a")); //this inlcude method checks eigther the given word or string is present or not is the given string
