@@ -44,4 +44,11 @@ console.log(escapedStr); // He said, "Hello!"
 let singleQuoteStr = "It's a sunny day"; // using backslash to escape single quote
 console.log(singleQuoteStr); // It's a sunny day
 
-//string methods
+//STRING METHODS/FUNCTIONS
+//1. toUpperCase() and toLowerCase()
+let str1 = "Hello Mr Coder";
+console.log(str1.toUpperCase()); // HELLO MR CODER
+console.log(str1.toLowerCase()); // hello mr coder
+//str.trim() removes whitespace from both ends of a string
+let str2 = "   Hello Mr Coder   ";
+console.log(str2.trim()); // Hello Mr Coder
