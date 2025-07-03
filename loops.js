@@ -37,5 +37,18 @@ do {
 console.log("=====for of loop ======");
 let arr = [1, 2, 3, 4, 5];
 for (let value of arr) {
+  //it is unsed in case of arrays and strings
   console.log(value);
+}
+
+//for in loop
+console.log("=====for in loop ======");
+let person = {
+  name: "Abhay",
+  age: 23,
+  city: "Delhi",
+};
+for (let key in person) {
+  //it is used in case of objects
+  console.log(key + ": " + person[key]);
 }
