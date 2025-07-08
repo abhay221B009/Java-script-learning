@@ -54,3 +54,15 @@ console.log(
 let removedElements = numbers.splice(1, 2); // Removes 2 elements starting from index 1
 console.log("Removed elements:", removedElements);
 console.log("Array after removing elements:", numbers);
+
+//MAP _ METHOD
+console.log("====map method====");
+//creates a new array with the results of some operation.The value its callback returns are used to form new array
+
+let nums = [1, 2, 3, 4, 5];
+let newNums = nums.map((val) => {
+  return val ** 2;
+});
+
+console.log(newNums);
+console.log(nums);
