@@ -66,3 +66,29 @@ let newNums = nums.map((val) => {
 
 console.log(newNums);
 console.log(nums);
+
+//FILTER _ METHOD
+console.log("====filter method====");
+//creates a new array of elements that give true for  CONDITION/FILter
+let arr1 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+let newArr = arr1.filter((val) => {
+  return val % 2 == 0; // Returns only even numbers
+});
+console.log("original array:", arr1);
+console.log("Filtered array (even numbers):", newArr);
+
+//REDUCE _ METHOD
+console.log("====reduce method====");
+//executes a reducer function on each element of the array, resulting in a single output value
+let arr2 = [1, 2, 3, 4, 5];
+let sum = arr2.reduce((accumulator, currentValue) => {
+  return accumulator + currentValue; // Sums up all elements
+}, 0); // Initial value is 0
+console.log("Sum of array elements:", sum);
+
+//printing the larget number in an array  using reduce
+let arr3 = [10, 20, 30, 40, 50];
+let largest = arr3.reduce((accumulator, currentValue) => {
+  return accumulator > currentValue ? accumulator : currentValue; // Returns the larger of the two
+}, arr3[0]); // Initial value is the first element of the array
+console.log("Largest number in array:", largest);
