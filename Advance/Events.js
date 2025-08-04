@@ -7,3 +7,8 @@ btn1.onclick = function () {
   a++;
   console.log(a);
 };
+let box = document.querySelector("#box");
+box.onmouseover = function () {
+  console.log("mouse is over the box");
+  box.style.backgroundColor = "red";
+};

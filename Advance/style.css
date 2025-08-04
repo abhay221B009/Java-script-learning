@@ -6,3 +6,10 @@ div {
   color: white;
   text-align: center;
 }
+
+#box {
+  background-color: green;
+  color: white;
+  border: 2px solid black;
+  width: 200px;
+}
