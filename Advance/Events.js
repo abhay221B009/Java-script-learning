@@ -12,3 +12,7 @@ box.onmouseover = function () {
   console.log("mouse is over the box");
   box.style.backgroundColor = "red";
 };
+box.onmouseout = function () {
+  console.log("mouse left the box");
+  box.style.backgroundColor = "blue"; // Revert to original
+};
