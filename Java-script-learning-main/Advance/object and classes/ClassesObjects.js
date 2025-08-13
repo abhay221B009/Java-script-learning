@@ -1,0 +1,29 @@
+//prototypes
+// A javasript  object is an entity having state and behavior (properties and methods).
+//Js objects have a special property called prototype.
+//we set protoytype using ___proto___
+
+const student = {
+  //direct way of creating an object
+  fullName: "Abhay Raj Chauhan",
+  Age: 20,
+  printAge: function () {
+    console.log("age= ", this.Age); //this refers to the current object
+  },
+};
+
+let arr = ["apple", "banana", "orange"];
+// Declare and initialize the employee variable
+const employee = {
+  calctax: function () {
+    // ... tax calculation logic
+    console.log("Calculating tax...");
+  },
+};
+const karanArjun = {
+  salary: 50000,
+};
+
+karanArjun.__proto__ = employee; // Setting prototype
+console.log("Karan Arjun's salary:", karanArjun.salary);
+karanArjun.calctax(); // Inherits method from employee prototype
