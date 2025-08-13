@@ -92,16 +92,23 @@ class Child extends Parent {}
 let child = new Child();
 
 class Person {
+  constructor() {
+    this.species = "homosapiens"; //this refers to the current object
+  }
   eat() {
     console.log("Eating");
   }
   sleep() {
     console.log("Sleeping");
   }
+
+  work() {
+    console.log("Do nothing");
+  }
 }
 
 class Engineer extends Person {
-  code() {
+  work() {
     console.log("Coding");
   }
 }
@@ -115,3 +122,5 @@ class Doctor extends Person {
 }
 
 let doc = new Doctor();
+
+//if parent class and child class have same method, the child class method is used and this is called method ovrerriding
