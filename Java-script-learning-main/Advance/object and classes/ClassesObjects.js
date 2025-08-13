@@ -41,9 +41,10 @@ karanArjun.calctax(); // Inherits method from employee prototype
 //class is bsically a blueprint for creating objects
 
 class ToyotaCar {
-  constructor(brand) {
+  constructor(brand, mileage) {
     console.log("Creating a new Toyota Ca using constructorr");
     this.brandName = brand; //this refers to the current object
+    this.mileage = mileage; //this refers to the current object
   }
   start() {
     console.log("starting the car");
@@ -65,8 +66,8 @@ class ToyotaCar {
 //creating an object of the class
 //const myCar = new ToyotaCar();
 
-let fortuner = new ToyotaCar("fortuner"); //creating an object of the class ToyotaCar
-let lexus = new ToyotaCar();
+let fortuner = new ToyotaCar("fortuner", 10); //creating an object of the class ToyotaCar
+let lexus = new ToyotaCar("Lexux", 20); //creating an object of the class ToyotaCar
 // fortuner.setBrand("Fortuner");
 // lexus.setBrand("Lexus");
 
@@ -74,3 +75,18 @@ let lexus = new ToyotaCar();
 //special method that is called when an object is created from a class.
 //automatically called when we create an object of the class.
 //initializes the properties of the object.
+
+//============================================
+//INHERITANCE
+//allows a class to inherit properties and methods from another class.
+
+//inheritance is  passing down the properties and methods from parent to child class
+class Parent {
+  hello() {
+    console.log("Hello from Parent class");
+  }
+}
+
+class Child extends Parent {}
+
+let child = new Child();
