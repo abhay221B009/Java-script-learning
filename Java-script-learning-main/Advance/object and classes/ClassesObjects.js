@@ -48,9 +48,20 @@ class ToyotaCar {
   stop() {
     console.log("stopping the car");
   }
+
+  setBrand(brand) {
+    this.brandName = brand;
+  }
+
+  setBrand(brand) {
+    this.brand = brand; //here first brand is different from the second brand
+  }
 }
 
 //creating an object of the class
 //const myCar = new ToyotaCar();
 
 let fortuner = new ToyotaCar();
+let lexus = new ToyotaCar();
+fortuner.setBrand("Fortuner");
+lexus.setBrand("Lexus");
