@@ -90,3 +90,28 @@ class Parent {
 class Child extends Parent {}
 
 let child = new Child();
+
+class Person {
+  eat() {
+    console.log("Eating");
+  }
+  sleep() {
+    console.log("Sleeping");
+  }
+}
+
+class Engineer extends Person {
+  code() {
+    console.log("Coding");
+  }
+}
+
+let eng = new Engineer();
+
+class Doctor extends Person {
+  treat() {
+    console.log("Treating patients");
+  }
+}
+
+let doc = new Doctor();
