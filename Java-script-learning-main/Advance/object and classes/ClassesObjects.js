@@ -32,3 +32,25 @@ const karanArjun = {
 karanArjun.__proto__ = employee; // Setting prototype
 console.log("Karan Arjun's salary:", karanArjun.salary);
 karanArjun.calctax(); // Inherits method from employee prototype
+
+//CLASSES
+
+//class is a program template for creating objects.
+//those objects will have some state (variables) and some behaviour(functions) inside it.
+
+//class is bsically a blueprint for creating objects
+
+class ToyotaCar {
+  start() {
+    console.log("starting the car");
+  }
+
+  stop() {
+    console.log("stopping the car");
+  }
+}
+
+//creating an object of the class
+//const myCar = new ToyotaCar();
+
+let fortuner = new ToyotaCar();
