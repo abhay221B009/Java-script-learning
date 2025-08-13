@@ -22,6 +22,11 @@ const employee = {
 };
 const karanArjun = {
   salary: 50000,
+  calctax: function () {
+    //  when there is a clash bewtween the method of the object and the prototype, the method of the object is called
+    // ... tax calculation logic
+    console.log("Calculating tax for Karan Arjun...");
+  },
 };
 
 karanArjun.__proto__ = employee; // Setting prototype
