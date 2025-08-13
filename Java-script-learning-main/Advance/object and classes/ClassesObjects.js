@@ -98,29 +98,33 @@ class Person {
   eat() {
     console.log("Eating");
   }
-  sleep() {
-    console.log("Sleeping");
-  }
 
-  work() {
-    console.log("Do nothing");
-  }
+  // sleep() {
+  //   console.log("Sleeping");
+  // }
+
+  // work() {
+  //   console.log("Do nothing");
+  // }
 }
 
 class Engineer extends Person {
+  constructor(branch) {
+    super(); //calls the constructor of the parent class Person
+    console.log("Creating a new Engineer using constructor");
+    this.branch = branch; //this refers to the current object
+  }
   work() {
     console.log("Coding");
   }
 }
 
-let eng = new Engineer();
-
-class Doctor extends Person {
-  treat() {
-    console.log("Treating patients");
-  }
-}
-
-let doc = new Doctor();
+let eng = new Engineer("chemical");
 
 //if parent class and child class have same method, the child class method is used and this is called method ovrerriding
+
+//=======================================
+
+//super keyword
+//used to call the constructor of the parent class
+//can also be used to access the properties and methods of the parent class
