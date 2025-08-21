@@ -120,6 +120,7 @@ class Engineer extends Person {
 
   // Method overriding: child class method replaces parent method
   work() {
+    super.eat();
     console.log(this.name, "is coding in", this.branch);
   }
 }
