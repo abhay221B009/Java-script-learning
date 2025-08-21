@@ -1,86 +1,82 @@
-//prototypes
-// A javasript  object is an entity having state and behavior (properties and methods).
-//Js objects have a special property called prototype.
-//we set protoytype using ___proto___
+// ===============================
+// PROTOTYPES
+// ===============================
+// A JavaScript object is an entity having state (properties) and behavior (methods).
+// Every JS object has a special property called `prototype`.
+// We can set a prototype using `__proto__`.
 
 const student = {
-  //direct way of creating an object
+  // Direct way of creating an object
   fullName: "Abhay Raj Chauhan",
-  Age: 20,
+  age: 20,
   printAge: function () {
-    console.log("age= ", this.Age); //this refers to the current object
+    console.log("Age:", this.age); // `this` refers to the current object
   },
 };
 
-let arr = ["apple", "banana", "orange"];
-// Declare and initialize the employee variable
+// Example: Arrays in JS are also objects
+let fruits = ["apple", "banana", "orange"];
+
+// Prototype example
 const employee = {
-  calctax: function () {
-    // ... tax calculation logic
+  calcTax: function () {
     console.log("Calculating tax...");
   },
 };
+
 const karanArjun = {
   salary: 50000,
-  calctax: function () {
-    //  when there is a clash bewtween the method of the object and the prototype, the method of the object is called
-    // ... tax calculation logic
+  calcTax: function () {
+    // If the object has its own method,
+    // it overrides the method from the prototype
     console.log("Calculating tax for Karan Arjun...");
   },
 };
 
-karanArjun.__proto__ = employee; // Setting prototype
+// Setting prototype
+karanArjun.__proto__ = employee;
+
 console.log("Karan Arjun's salary:", karanArjun.salary);
-karanArjun.calctax(); // Inherits method from employee prototype
+karanArjun.calcTax(); // Uses object’s own method (not prototype’s)
 
-//CLASSES
-
-//class is a program template for creating objects.
-//those objects will have some state (variables) and some behaviour(functions) inside it.
-
-//class is bsically a blueprint for creating objects
+// ===============================
+// CLASSES
+// ===============================
+// A class is a blueprint/template for creating objects.
+// Objects created from a class will have state (variables) and behavior (functions).
 
 class ToyotaCar {
   constructor(brand, mileage) {
-    console.log("Creating a new Toyota Ca using constructorr");
-    this.brandName = brand; //this refers to the current object
-    this.mileage = mileage; //this refers to the current object
+    console.log("Creating a new Toyota Car using constructor...");
+    this.brandName = brand; // instance property
+    this.mileage = mileage; // instance property
   }
+
   start() {
-    console.log("starting the car");
+    console.log(this.brandName, "is starting...");
   }
 
   stop() {
-    console.log("stopping the car");
+    console.log(this.brandName, "is stopping...");
   }
 
-  // setBrand(brand) {
-  //   this.brandName = brand;
-  // }
-
   setBrand(brand) {
-    this.brand = brand; //here first brand is different from the second brand
+    this.brandName = brand; // updates brand name
   }
 }
 
-//creating an object of the class
-//const myCar = new ToyotaCar();
+// Creating objects of the class
+let fortuner = new ToyotaCar("Fortuner", 10);
+let lexus = new ToyotaCar("Lexus", 20);
 
-let fortuner = new ToyotaCar("fortuner", 10); //creating an object of the class ToyotaCar
-let lexus = new ToyotaCar("Lexux", 20); //creating an object of the class ToyotaCar
-// fortuner.setBrand("Fortuner");
-// lexus.setBrand("Lexus");
+fortuner.start();
+lexus.stop();
 
-//CONSTRUCTOR
-//special method that is called when an object is created from a class.
-//automatically called when we create an object of the class.
-//initializes the properties of the object.
+// ===============================
+// INHERITANCE
+// ===============================
+// Inheritance allows a class to inherit properties and methods from another class.
 
-//============================================
-//INHERITANCE
-//allows a class to inherit properties and methods from another class.
-
-//inheritance is  passing down the properties and methods from parent to child class
 class Parent {
   hello() {
     console.log("Hello from Parent class");
@@ -90,41 +86,51 @@ class Parent {
 class Child extends Parent {}
 
 let child = new Child();
+child.hello(); // Inherited method
 
+// Another example with constructors
 class Person {
-  constructor() {
-    this.species = "homosapiens"; //this refers to the current object
+  constructor(name) {
+    console.log("Entering Parent constructor...");
+    this.species = "Homo sapiens"; // common property
+    this.name = name;
+    console.log("Exiting Parent constructor...");
   }
+
   eat() {
-    console.log("Eating");
+    console.log(this.name, "is eating");
   }
 
-  // sleep() {
-  //   console.log("Sleeping");
-  // }
+  sleep() {
+    console.log(this.name, "is sleeping");
+  }
 
-  // work() {
-  //   console.log("Do nothing");
-  // }
+  work() {
+    console.log(this.name, "does nothing by default");
+  }
 }
 
 class Engineer extends Person {
-  constructor(branch) {
-    super(); //calls the constructor of the parent class Person
-    console.log("Creating a new Engineer using constructor");
-    this.branch = branch; //this refers to the current object
+  constructor(name, branch) {
+    super(name); // calls parent constructor (mandatory before using `this`)
+    console.log("Entering Child constructor...");
+    this.branch = branch;
+    console.log("Exiting Child constructor...");
   }
+
+  // Method overriding: child class method replaces parent method
   work() {
-    console.log("Coding");
+    console.log(this.name, "is coding in", this.branch);
   }
 }
 
-let eng = new Engineer("chemical");
+// Creating an Engineer object
+let eng = new Engineer("Abhay", "Computer Science");
+eng.eat(); // Inherited from Person
+eng.work(); // Overridden method
 
-//if parent class and child class have same method, the child class method is used and this is called method ovrerriding
-
-//=======================================
-
-//super keyword
-//used to call the constructor of the parent class
-//can also be used to access the properties and methods of the parent class
+// ===============================
+// SUPER KEYWORD
+// ===============================
+// `super` is used to call the parent class constructor
+// and also access parent class methods/properties
