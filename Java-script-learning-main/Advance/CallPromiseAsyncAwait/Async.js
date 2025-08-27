@@ -106,20 +106,43 @@
 //IT IS AN OBJECT IN JS
 //IT IS A SOLUTION TO CALLBACK HELL
 
-let promise = new Promise(function (resolve, reject) {
-  console.log("i am a promise");
-  //   resolve("success");
-  reject("failure");
-});
+// let promise = new Promise(function (resolve, reject) {
+//   console.log("i am a promise");
+//   //   resolve("success");
+//   reject("failure");
+// });
 
-function getData(dataID, getNextData) {
-  return new Promise(function (resolve, reject) {
-    setTimeout(() => {
-      console.log("data", dataID);
-      resolve("success");
-      if (getNextData) {
-        getNextData();
-      }
-    }, 5000);
-  });
-}
+// function getData(dataID, getNextData) {
+//   return new Promise(function (resolve, reject) {
+//     setTimeout(() => {
+//       console.log("data", dataID);
+//       resolve("success");
+//       if (getNextData) {
+//         getNextData();
+//       }
+//     }, 5000);
+//   });
+// }
+
+//using promise
+//.then() method is used to handle the resolved value of the promise
+//.catch() method is used to handle the rejected value of the promise
+
+// const getPromise = () => {
+//   return new Promise(function (resolve, reject) {
+//     console.log("i am a promise");
+//     // resolve("success");
+//     reject("failure");
+//   });
+// };
+
+// let promise = getPromise();
+// promise.then((res) => {
+//   console.log("promise fulfilled", res);
+// });
+
+// promise.catch((err) => {
+//   console.log("promise rejected", err);
+// });
+
+//PROMISE CHAINING++++++++++++++++++++++++++++++++++++++++++++++
