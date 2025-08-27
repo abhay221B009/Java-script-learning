@@ -163,24 +163,24 @@ function asyncFun2() {
     }, 4000);
   });
 }
-console.log("fetching data 1...");
+// console.log("fetching data 1...");
 
-let p1 = asyncFun1();
-p1.then((res) => {
-  console.log("promise fulfilled", res);
-  console.log("fetching data 2...");
-  let p2 = asyncFun2();
-  p2.then((res) => {
-    console.log("promise fulfilled", res);
-  });
-});
-p1.catch((err) => {
-  console.log("promise rejected", err);
-  p2.catch((err) => {
-    console.log("promise rejected", err);
-  });
-});
-
+// let p1 = asyncFun1();
+// p1.then((res) => {
+//   console.log("promise fulfilled", res);
+//   console.log("fetching data 2...");
+//   let p2 = asyncFun2();
+//   p2.then((res) => {
+//     console.log("promise fulfilled", res);
+//   });
+// });
+// p1.catch((err) => {
+//   console.log("promise rejected", err);
+//   p2.catch((err) => {
+//     console.log("promise rejected", err);
+//   });
+// });
+//==============the below code gets executed along with the above code after 4 seconds instantally.
 // console.log("fetching data 2...");
 
 // let p2 = asyncFun2();
@@ -190,3 +190,32 @@ p1.catch((err) => {
 // p2.catch((err) => {
 //   console.log("promise rejected", err);
 // });
+
+//=================1111111111111111111==========================
+
+// console.log("fetching data 1...");
+
+// let p1 = asyncFun1();
+// p1.then((res) => {
+//   console.log("promise fulfilled", res);
+//   console.log("fetching data 2...");
+//   let p2 = asyncFun2();
+//   p2.then((res) => {
+//     console.log("promise fulfilled", res);
+//   });
+// });
+// p1.catch((err) => {
+//   console.log("promise rejected", err);
+//   p2.catch((err) => {
+//     console.log("promise rejected", err);
+//   });
+// });
+//easy way of writing the above code
+console.log("fetching data 1...");
+asyncFun1().then((res) => {
+  console.log("object promise fulfilled", res);
+  console.log("fetching data 2...");
+  asyncFun2().then((res) => {
+    console.log("promise fulfilled", res);
+  });
+});
