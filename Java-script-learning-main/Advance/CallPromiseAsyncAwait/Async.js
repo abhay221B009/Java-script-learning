@@ -25,5 +25,7 @@ setTimeout(hello, 2000); //2 seconds == 2000 milliseconds
 //another method
 
 setTimeout(function () {
-  console.log("hello from setTimeout");
+  console.log("five");
 }, 6000); //6 seconds == 6000 milliseconds
+
+console.log("four");
