@@ -65,23 +65,49 @@
 
 // //this is a example of nesting
 
-function getData(dataID, getNextData) {
-  setTimeout(() => {
-    console.log("data", dataID);
-    getNextData();
-  }, 2000);
-}
+// function getData(dataID, getNextData) {
+//   setTimeout(() => {
+//     console.log("data", dataID);
+//     getNextData();
+//   }, 2000);
+// }
 
-//data 1
-//data 2
-//data 3
-getData(1, () => {
-  getData(2, () => {
-    getData(3, () => {});
-  });
-}); //callback hell
+// //data 1
+// //data 2
+// //data 3
+// //NESTED CALLBACKS OR CALLBACK HELL-> this is a problem in javascript, to solve this problem we use promises
+// getData(1, () => {
+//   console.log("gettin data 2");
+//   getData(2, () => {
+//     console.log("gettin data 3");
+//     getData(3, () => {
+//       console.log("gettin data 4");
+//       getData(4);
+//     });
+//   });
+// }); //callback hell
 
-//the above data is fetched altogether after 2 seconds
-//but if we want to fetch data in sequence like first data 1 then data 2
-//then data 3 we can use callback hell
-//but this is not a good practice
+// //the above data is fetched altogether after 2 seconds
+// //but if we want to fetch data in sequence like first data 1 then data 2
+// //then data 3 we can use callback hell
+// //but this is not a good practice
+
+// //PROMISES++++++++++++++++++++++++++++++++++++++++++++++
+// //a promise is an object that represents the eventual completion (or failure) of an asynchronous operation and its resulting value.
+// //a promise is in one of three states: pending, fulfilled, or rejected.
+// //a promise is created using the Promise constructor, which takes a function with two arguments: resolve and reject.
+// //the resolve function is called when the asynchronous operation is successful, and the reject function is called when the operation fails.
+// //a promise can be consumed using the then and catch methods.
+// //the then method is called when the promise is fulfilled, and the catch method is called when the promise is rejected.
+// //promises can be chained together using the then method, allowing for sequential asynchronous operations.
+// //promises can be created using the Promise.resolve and Promise.reject methods.
+
+//PROMISES IN JAVASCRIPT IF FOR "EVENTUAL" COMPLETION OF TASK.
+//IT IS AN OBJECT IN JS
+//IT IS A SOLUTION TO CALLBACK HELL
+
+let promise = new Promise(function (resolve, reject) {
+  console.log("i am a promise");
+  //   resolve("success");
+  reject("failure");
+});
