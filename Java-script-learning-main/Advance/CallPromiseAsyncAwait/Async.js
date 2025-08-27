@@ -111,3 +111,15 @@ let promise = new Promise(function (resolve, reject) {
   //   resolve("success");
   reject("failure");
 });
+
+function getData(dataID, getNextData) {
+  return new Promise(function (resolve, reject) {
+    setTimeout(() => {
+      console.log("data", dataID);
+      resolve("success");
+      if (getNextData) {
+        getNextData();
+      }
+    }, 5000);
+  });
+}
