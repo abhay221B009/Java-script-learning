@@ -146,3 +146,47 @@
 // });
 
 //PROMISE CHAINING++++++++++++++++++++++++++++++++++++++++++++++
+function asyncFun1() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      console.log("some data 1");
+      resolve("success");
+    }, 4000);
+  });
+}
+
+function asyncFun2() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      console.log("some data 2");
+      resolve("success");
+    }, 4000);
+  });
+}
+console.log("fetching data 1...");
+
+let p1 = asyncFun1();
+p1.then((res) => {
+  console.log("promise fulfilled", res);
+  console.log("fetching data 2...");
+  let p2 = asyncFun2();
+  p2.then((res) => {
+    console.log("promise fulfilled", res);
+  });
+});
+p1.catch((err) => {
+  console.log("promise rejected", err);
+  p2.catch((err) => {
+    console.log("promise rejected", err);
+  });
+});
+
+// console.log("fetching data 2...");
+
+// let p2 = asyncFun2();
+// p2.then((res) => {
+//   console.log("promise fulfilled", res);
+// });
+// p2.catch((err) => {
+//   console.log("promise rejected", err);
+// });
