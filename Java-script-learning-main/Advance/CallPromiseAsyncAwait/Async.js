@@ -160,7 +160,7 @@ function asyncFun2() {
     setTimeout(() => {
       console.log("some data 2");
       resolve("success");
-    }, 4000);
+    }, 5000);
   });
 }
 // console.log("fetching data 1...");
