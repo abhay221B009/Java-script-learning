@@ -211,11 +211,42 @@ function asyncFun2() {
 //   });
 // });
 //easy way of writing the above code
-console.log("fetching data 1...");
-asyncFun1().then((res) => {
-  console.log("object promise fulfilled", res);
-  console.log("fetching data 2...");
-  asyncFun2().then((res) => {
-    console.log("promise fulfilled", res);
+// console.log("fetching data 1...");
+// asyncFun1().then((res) => {
+//   console.log("object promise fulfilled", res);
+//   console.log("fetching data 2...");
+//   asyncFun2().then((res) => {
+//     console.log("promise fulfilled", res);
+//   });
+// });
+
+//ASYNC AWAIT++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//it is a syntactic sugar over promises
+//it makes asynchronous code look and behave like synchronous code
+//it is easier to read and write
+//it is built on top of promises
+//it is used to handle promises in a more elegant way
+//it is used to avoid callback hell and promise chaining
+
+async function hello() {
+  console.log("hello");
+}
+
+//AWAIT
+//it is used to wait for a promise to resolve or reject
+//it can only be used inside an async function
+//it makes the code wait until the promise is resolved or rejected
+//it returns the resolved value of the promise
+function api() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      console.log("some data from api");
+      resolve("success");
+    }, 4000);
   });
-});
+}
+
+async function fetchData() {
+  console.log("fetching data...");
+  await api();
+}
