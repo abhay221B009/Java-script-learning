@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Joke Generator</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background: linear-gradient(135deg, #6e8efb, #a777e3);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      }
+
+      .container {
+        background-color: white;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        width: 90%;
+        max-width: 500px;
+        padding: 30px;
+        text-align: center;
+      }
+
+      h1 {
+        color: #333;
+        margin-bottom: 20px;
+        font-size: 2rem;
+      }
+
+      .joke-container {
+        background-color: #f8f9fa;
+        border-radius: 10px;
+        padding: 20px;
+        margin: 25px 0;
+        min-height: 180px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .setup {
+        font-size: 1.4rem;
+        color: #333;
+        margin-bottom: 15px;
+        font-weight: 500;
+      }
+
+      .punchline {
+        font-size: 1.3rem;
+        color: #6c757d;
+        font-style: italic;
+        margin-top: 15px;
+        opacity: 0;
+        transform: translateY(10px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+      }
+
+      .punchline.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .buttons {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 20px;
+      }
+
+      button {
+        background-color: #6e8efb;
+        color: white;
+        border: none;
+        border-radius: 50px;
+        padding: 12px 25px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s;
+      }
+
+      button:hover {
+        background-color: #5a7df9;
+        transform: translateY(-2px);
+      }
+
+      button:active {
+        transform: translateY(0);
+      }
+
+      #showPunchline {
+        background-color: #a777e3;
+      }
+
+      #showPunchline:hover {
+        background-color: #9566d3;
+      }
+
+      .joke-info {
+        margin-top: 20px;
+        font-size: 0.9rem;
+        color: #6c757d;
+      }
+
+      .loading {
+        color: #6c757d;
+        font-style: italic;
+      }
+
+      .error {
+        color: #dc3545;
+        font-weight: 500;
+      }
+
+      @media (max-width: 500px) {
+        .container {
+          padding: 20px;
+        }
+
+        h1 {
+          font-size: 1.7rem;
+        }
+
+        .setup {
+          font-size: 1.2rem;
+        }
+
+        .punchline {
+          font-size: 1.1rem;
+        }
+
+        button {
+          padding: 10px 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Random Joke Generator</h1>
+
+      <div class="joke-container">
+        <p class="setup">Click the button to get a joke!</p>
+        <p class="punchline"></p>
+      </div>
+
+      <div class="buttons">
+        <button id="getJoke">Get New Joke</button>
+        <button id="showPunchline">Show Punchline</button>
+      </div>
+
+      <div class="joke-info">
+        <p>
+          Jokes provided by
+          <a
+            href="https://official-joke-api.appspot.com/random_joke"
+            target="_blank"
+            >Official Joke API</a
+          >
+        </p>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const jokeSetup = document.querySelector(".setup");
+        const jokePunchline = document.querySelector(".punchline");
+        const getJokeBtn = document.getElementById("getJoke");
+        const showPunchlineBtn = document.getElementById("showPunchline");
+
+        const URL = "https://official-joke-api.appspot.com/random_joke";
+
+        // Function to fetch a joke from the API
+        async function getJoke() {
+          try {
+            jokeSetup.textContent = "Loading joke...";
+            jokeSetup.classList.add("loading");
+            jokePunchline.textContent = "";
+            jokePunchline.classList.remove("show");
+
+            let response = await fetch(URL);
+
+            if (!response.ok) {
+              throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            let data = await response.json();
+
+            jokeSetup.classList.remove("loading");
+            jokeSetup.textContent = data.setup;
+            jokePunchline.textContent = data.punchline;
+          } catch (error) {
+            console.error("Error fetching joke:", error);
+            jokeSetup.classList.remove("loading");
+            jokeSetup.textContent =
+              "Oops! Failed to fetch a joke. Please try again.";
+            jokeSetup.classList.add("error");
+            jokePunchline.textContent = "";
+          }
+        }
+
+        // Event listeners for buttons
+        getJokeBtn.addEventListener("click", getJoke);
+
+        showPunchlineBtn.addEventListener("click", function () {
+          if (jokePunchline.textContent) {
+            jokePunchline.classList.toggle("show");
+
+            if (jokePunchline.classList.contains("show")) {
+              this.textContent = "Hide Punchline";
+            } else {
+              this.textContent = "Show Punchline";
+            }
+          }
+        });
+
+        // Get a joke when the page loads
+        getJoke();
+      });
+    </script>
+  </body>
+</html>
